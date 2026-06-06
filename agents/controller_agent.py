@@ -161,25 +161,32 @@ class ControllerAgent:
 
         task = await self._task_agent.create_task(msg.telegram_id, text)
 
-        # Schedule reminder if deadline is set
         deadline = task.get("deadline")
         if deadline:
+            # deadline stored in DB as UTC naive — make it aware for scheduler
+            from datetime import timezone as tz
+            if deadline.tzinfo is None:
+                deadline_aware = deadline.replace(tzinfo=tz.utc)
+            else:
+                deadline_aware = deadline
+
             job_id = f"reminder_{task['_id']}"
             scheduler_agent.schedule_reminder(
                 job_id=job_id,
-                run_at=deadline,
+                run_at=deadline_aware,
                 callback=self._send_reminder,
                 telegram_id=msg.telegram_id,
                 task_title=task["task"],
                 task_id=task["_id"],
             )
-            deadline_str = humanise_delta(deadline)
+            from utils.helpers import humanise_delta
+            deadline_str = humanise_delta(deadline_aware)
             return (
                 f"✅ *Task added!*\n\n"
                 f"📌 {task['task']}\n"
                 f"⏰ Deadline: {deadline_str}\n"
                 f"🎯 Priority: {task['priority'].upper()}\n\n"
-                f"Reminder scheduled!"
+                f"Reminder scheduled! ⏰"
             )
 
         return (
@@ -187,7 +194,7 @@ class ControllerAgent:
             f"📌 {task['task']}\n"
             f"🎯 Priority: {task['priority'].upper()}"
         )
-
+    
     async def _cmd_tasks(self, msg: IncomingMessage) -> str:
         tasks = await self._task_agent.list_tasks(msg.telegram_id, status="pending")
         if not tasks:
@@ -199,11 +206,13 @@ class ControllerAgent:
             priority = t.get("priority", "medium").upper()
             deadline = t.get("deadline")
             dl_str = f" | Due: {humanise_delta(deadline)}" if deadline else ""
-            task_id_short = t.get("_id", "")[-6:]
-            lines.append(f"{i}. {title} [{priority}]{dl_str}\n   ID: `…{task_id_short}`")
+            task_id = t.get("_id", "")
+            lines.append(f"{i}. *{title}*\n   Priority: {priority}{dl_str}\n   ID: `{task_id}`")
 
-        return "\n".join(lines)
+        return "\n".join(lines) 
 
+    
+    
     async def _cmd_done(self, msg: IncomingMessage) -> str:
         task_id = msg.command_args.strip()
         if not task_id:
@@ -218,13 +227,36 @@ class ControllerAgent:
     async def _cmd_delay(self, msg: IncomingMessage) -> str:
         parts = msg.command_args.strip().split(maxsplit=1)
         if len(parts) < 2:
-            return "Usage: /delay <task_id> <new deadline>\nExample: /delay 664f... tomorrow morning"
+            return (
+                "Usage: /delay <task_id> <new deadline>\n"
+                "Example: /delay 69a9d279d94b839b31ad16b5 tomorrow morning\n\n"
+                "Get your task ID from /tasks"
+            )
 
-        task_id, new_deadline = parts[0], parts[1]
-        success = await self._task_agent.delay_task(task_id, new_deadline)
-        if success:
-            return f"⏰ Task rescheduled to *{new_deadline}*."
-        return "❌ Could not reschedule. Check the task ID or deadline format."
+        task_id, new_deadline = parts[0].strip(), parts[1].strip()
+
+        # Validate ObjectId format (must be 24 hex characters)
+        import re
+        if not re.match(r'^[a-f0-9]{24}$', task_id, re.IGNORECASE):
+            return (
+            "❌ Invalid task ID format.\n"
+            "Task IDs are 24 characters long.\n"
+            "Get the correct ID from /tasks"
+            )
+
+        try:
+            success = await self._task_agent.delay_task(task_id, new_deadline)
+            if success:
+                return f"⏰ Task rescheduled to *{new_deadline}*."
+            return (
+                "❌ Could not reschedule.\n"
+                "• Make sure the task ID is correct (from /tasks)\n"
+                "• Make sure the deadline is clear e.g. 'tomorrow morning' or 'friday 5pm'"
+            )
+        except Exception as exc:
+            from utils.logger import log
+            log.error("_cmd_delay error: {}", exc)
+            return "❌ Something went wrong while rescheduling. Please try again."
 
     async def _cmd_goal(self, msg: IncomingMessage) -> str:
         goal_text = msg.command_args.strip()

@@ -19,10 +19,6 @@ def utcnow() -> datetime:
 
 
 class TaskAgent:
-    """
-    Uses the LLM to convert natural-language input into structured tasks,
-    persists them to MongoDB, and returns confirmation data.
-    """
 
     async def create_task(
         self, telegram_id: int, raw_text: str
@@ -47,7 +43,7 @@ class TaskAgent:
             if not deadline:
                 log.debug("TaskAgent: could not parse deadline_text={!r}", deadline_text)
 
-        # 3. Build document — store deadline as UTC naive for MongoDB
+        # 3. Convert to UTC naive for MongoDB
         deadline_utc = None
         if deadline is not None:
             if deadline.tzinfo is not None:
@@ -84,6 +80,19 @@ class TaskAgent:
     ) -> List[Dict[str, Any]]:
         db = await get_database()
         repo = TaskRepository(db)
+        # ── FIX: show both pending AND delayed tasks ──
+        if status is None:
+            from motor.motor_asyncio import AsyncIOMotorDatabase
+            cursor = repo.col.find(
+                {
+                    "telegram_id": telegram_id,
+                    "status": {"$in": ["pending", "delayed"]},
+                }
+            )
+            from pymongo import ASCENDING
+            cursor = cursor.sort("deadline", ASCENDING)
+            from database.db import _serialize
+            return [_serialize(d) async for d in cursor]
         return await repo.list_by_user(telegram_id, status=status)
 
     async def complete_task(self, task_id: str, telegram_id: int) -> bool:
@@ -98,17 +107,25 @@ class TaskAgent:
     async def delay_task(self, task_id: str, new_deadline_text: str) -> bool:
         new_deadline = parse_natural_date(new_deadline_text)
         if not new_deadline:
+            log.warning("delay_task: could not parse deadline={!r}", new_deadline_text)
             return False
 
         # Convert to UTC naive for MongoDB
         if new_deadline.tzinfo is not None:
             new_deadline = new_deadline.astimezone(timezone.utc).replace(tzinfo=None)
 
-        from bson import ObjectId
+        try:
+            from bson import ObjectId
+            obj_id = ObjectId(task_id)
+        except Exception as exc:
+            log.error("delay_task: invalid ObjectId={!r} err={}", task_id, exc)
+            return False
+
         db = await get_database()
         repo = TaskRepository(db)
+
         result = await repo.col.update_one(
-            {"_id": ObjectId(task_id)},
+            {"_id": obj_id},
             {
                 "$set": {
                     "deadline": new_deadline,
@@ -117,5 +134,10 @@ class TaskAgent:
                     "updated_at": utcnow().replace(tzinfo=None),
                 }
             },
+        )
+
+        log.info(
+            "delay_task: modified={} task_id={} new_deadline={}",
+            result.modified_count, task_id, new_deadline,
         )
         return result.modified_count > 0

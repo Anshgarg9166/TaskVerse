@@ -1,0 +1,42 @@
+2026-06-02 23:27:35 | INFO     | utils.logger:setup_logger:43 – Taskverse logger initialised – env=development
+2026-06-02 23:27:35 | INFO     | __main__:main:23 – ============================================================
+2026-06-02 23:27:35 | INFO     | __main__:main:24 –   🚀 Starting Taskverse AI Productivity System
+2026-06-02 23:27:35 | INFO     | __main__:main:25 –   env=development  model=llama3-8b-8192
+2026-06-02 23:27:35 | INFO     | __main__:main:26 – ============================================================
+2026-06-02 23:27:35 | ERROR    | __main__:main:36 – Missing required environment variables: ['TELEGRAM_BOT_TOKEN', 'GROQ_API_KEY']
+2026-06-02 23:27:35 | ERROR    | __main__:main:37 – Copy .env.example → .env and fill in the values
+2026-06-02 23:29:04 | INFO     | utils.logger:setup_logger:43 – Taskverse logger initialised – env=development
+2026-06-02 23:29:04 | INFO     | __main__:main:23 – ============================================================
+2026-06-02 23:29:04 | INFO     | __main__:main:24 –   🚀 Starting Taskverse AI Productivity System
+2026-06-02 23:29:04 | INFO     | __main__:main:25 –   env=development  model=llama3-8b-8192
+2026-06-02 23:29:04 | INFO     | __main__:main:26 – ============================================================
+2026-06-02 23:29:04 | ERROR    | __main__:main:36 – Missing required environment variables: ['TELEGRAM_BOT_TOKEN', 'GROQ_API_KEY']
+2026-06-02 23:29:04 | ERROR    | __main__:main:37 – Copy .env.example → .env and fill in the values
+2026-06-02 23:36:49 | INFO     | utils.logger:setup_logger:43 – Taskverse logger initialised – env=development
+2026-06-02 23:36:49 | INFO     | __main__:main:23 – ============================================================
+2026-06-02 23:36:49 | INFO     | __main__:main:24 –   🚀 Starting Taskverse AI Productivity System
+2026-06-02 23:36:49 | INFO     | __main__:main:25 –   env=development  model=llama3-8b-8192
+2026-06-02 23:36:49 | INFO     | __main__:main:26 – ============================================================
+2026-06-02 23:36:49 | ERROR    | __main__:main:36 – Missing required environment variables: ['TELEGRAM_BOT_TOKEN', 'GROQ_API_KEY']
+2026-06-02 23:36:49 | ERROR    | __main__:main:37 – Copy .env.example → .env and fill in the values
+2026-06-02 23:42:44 | INFO     | utils.logger:setup_logger:43 – Taskverse logger initialised – env=development
+2026-06-02 23:42:44 | INFO     | __main__:main:23 – ============================================================
+2026-06-02 23:42:44 | INFO     | __main__:main:24 –   🚀 Starting Taskverse AI Productivity System
+2026-06-02 23:42:44 | INFO     | __main__:main:25 –   env=development  model=llama3-8b-8192
+2026-06-02 23:42:44 | INFO     | __main__:main:26 – ============================================================
+2026-06-02 23:42:44 | ERROR    | __main__:main:36 – Missing required environment variables: ['TELEGRAM_BOT_TOKEN', 'GROQ_API_KEY']
+2026-06-02 23:42:44 | ERROR    | __main__:main:37 – Copy .env.example → .env and fill in the values
+2026-06-02 23:48:59 | INFO     | utils.logger:setup_logger:43 – Taskverse logger initialised – env=development
+2026-06-02 23:48:59 | INFO     | __main__:main:23 – ============================================================
+2026-06-02 23:48:59 | INFO     | __main__:main:24 –   🚀 Starting Taskverse AI Productivity System
+2026-06-02 23:48:59 | INFO     | __main__:main:25 –   env=development  model=llama3-8b-8192
+2026-06-02 23:48:59 | INFO     | __main__:main:26 – ============================================================
+2026-06-02 23:48:59 | ERROR    | __main__:main:36 – Missing required environment variables: ['TELEGRAM_BOT_TOKEN', 'GROQ_API_KEY']
+2026-06-02 23:48:59 | ERROR    | __main__:main:37 – Copy .env.example → .env and fill in the values
+2026-06-02 23:50:36 | INFO     | utils.logger:setup_logger:43 – Taskverse logger initialised – env=development
+2026-06-02 23:50:36 | INFO     | __main__:main:23 – ============================================================
+2026-06-02 23:50:36 | INFO     | __main__:main:24 –   🚀 Starting Taskverse AI Productivity System
+2026-06-02 23:50:36 | INFO     | __main__:main:25 –   env=development  model=llama3-8b-8192
+2026-06-02 23:50:36 | INFO     | __main__:main:26 – ============================================================
+2026-06-02 23:50:36 | ERROR    | __main__:main:36 – Missing required environment variables: ['TELEGRAM_BOT_TOKEN', 'GROQ_API_KEY']
+2026-06-02 23:50:36 | ERROR    | __main__:main:37 – Copy .env.example → .env and fill in the values

@@ -6,6 +6,8 @@ from __future__ import annotations
 from telegram import Bot
 from telegram.constants import ParseMode
 from telegram.ext import Application, ContextTypes
+from telegram.error import RetryAfter
+import asyncio
 
 from agents.controller_agent import ControllerAgent
 from agents.scheduler_agent import scheduler_agent
@@ -27,6 +29,14 @@ async def send_message(telegram_id: int, text: str) -> None:
             text=text,
             parse_mode=ParseMode.MARKDOWN,
         )
+    except RetryAfter as exc:
+        log.warning("Telegram flood control: retry after %s seconds", exc.retry_after)
+        await asyncio.sleep(exc.retry_after)
+        await bot.send_message(
+            chat_id=telegram_id,
+            text=text,
+            parse_mode=ParseMode.MARKDOWN,
+    )
     except Exception as exc:
         log.error("send_message failed – user={} err={}", telegram_id, exc)
     finally:

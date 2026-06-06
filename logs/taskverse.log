@@ -240,3 +240,339 @@
 2026-03-06 01:09:54 | INFO     | database.db:close_database:42 – MongoDB connection closed
 2026-03-06 01:09:54 | INFO     | agents.scheduler_agent:shutdown:33 – SchedulerAgent stopped
 2026-03-06 01:09:54 | INFO     | telegram_bot.bot:_post_shutdown:62 – Taskverse shut down cleanly. Goodbye!
+2026-03-06 15:12:48 | INFO     | utils.logger:setup_logger:43 – Taskverse logger initialised – env=development
+2026-03-06 15:12:48 | INFO     | __main__:main:23 – ============================================================
+2026-03-06 15:12:48 | INFO     | __main__:main:24 –   🚀 Starting Taskverse AI Productivity System
+2026-03-06 15:12:48 | INFO     | __main__:main:25 –   env=development  model=llama-3.3-70b-versatile
+2026-03-06 15:12:48 | INFO     | __main__:main:26 – ============================================================
+2026-03-06 15:12:49 | INFO     | telegram_bot.handlers:register_handlers:88 – Telegram handlers registered – commands=['start', 'add', 'tasks', 'done', 'delay', 'goal', 'studyplan', 'habits', 'motivation', 'help']
+2026-03-06 15:12:49 | INFO     | telegram_bot.bot:build_application:87 – Taskverse Telegram bot application built and ready
+2026-03-06 15:12:49 | INFO     | __main__:main:42 – Taskverse bot is live – listening for messages…
+2026-03-06 15:12:55 | DEBUG    | database.db:_ensure_indexes:69 – MongoDB indexes ensured
+2026-03-06 15:12:55 | INFO     | database.db:get_database:31 – MongoDB connected – db=taskverse
+2026-03-06 15:12:55 | INFO     | telegram_bot.bot:_post_init:45 – ✅ MongoDB connection verified
+2026-03-06 15:12:55 | INFO     | agents.scheduler_agent:start:28 – SchedulerAgent started
+2026-03-06 15:12:55 | INFO     | agents.scheduler_agent:schedule_interval:82 – SchedulerAgent: interval job registered – id=reminder_poller every=300s
+2026-03-06 15:12:55 | INFO     | scheduler.reminder_engine:start:47 – ReminderEngine started – poller=5min, daily-summary=08:00 UTC
+2026-03-06 15:12:55 | INFO     | telegram_bot.bot:_post_init:55 – ✅ Scheduler and reminder engine started
+2026-03-06 15:13:27 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=start text='/start'
+2026-03-06 15:14:00 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=add text='/add buy groceries tomorrow morning'
+2026-03-06 15:14:00 | INFO     | agents.task_agent:create_task:30 – TaskAgent.create_task – user=5385205222 text='buy groceries tomorrow morning'
+2026-03-06 15:14:00 | INFO     | llm.groq_client:get_groq_client:31 – Groq client initialised – model=llama-3.3-70b-versatile
+2026-03-06 15:14:00 | DEBUG    | llm.groq_client:chat_completion:81 – Groq response received – tokens_used=214
+2026-03-06 15:14:01 | INFO     | agents.task_agent:create_task:79 – TaskAgent: task created – id=69aaa1e008f851e1df272dbb title='Buy Groceries'
+2026-03-06 15:14:01 | INFO     | agents.scheduler_agent:schedule_reminder:65 – SchedulerAgent: reminder scheduled – id=reminder_69aaa1e008f851e1df272dbb at=2026-03-07 02:30:00+00:00
+2026-03-06 15:14:38 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=add text='/add finish project report tonight urgently'
+2026-03-06 15:14:38 | INFO     | agents.task_agent:create_task:30 – TaskAgent.create_task – user=5385205222 text='finish project report tonight urgently'
+2026-03-06 15:14:38 | DEBUG    | llm.groq_client:chat_completion:81 – Groq response received – tokens_used=218
+2026-03-06 15:14:38 | DEBUG    | agents.task_agent:create_task:48 – TaskAgent: could not parse deadline_text='tonight'
+2026-03-06 15:14:38 | INFO     | agents.task_agent:create_task:79 – TaskAgent: task created – id=69aaa20608f851e1df272dbc title='Finish Report'
+2026-03-06 15:14:48 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=tasks text='/tasks'
+2026-03-06 15:15:38 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=done text='/done 272dbc'
+2026-03-06 15:15:38 | ERROR    | telegram_bot.handlers:_handle:60 – Handler error – user=5385205222 err='272dbc' is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string
+2026-03-06 15:18:06 | INFO     | database.db:close_database:42 – MongoDB connection closed
+2026-03-06 15:18:06 | INFO     | agents.scheduler_agent:shutdown:33 – SchedulerAgent stopped
+2026-03-06 15:18:06 | INFO     | telegram_bot.bot:_post_shutdown:62 – Taskverse shut down cleanly. Goodbye!
+2026-03-06 15:21:58 | INFO     | utils.logger:setup_logger:43 – Taskverse logger initialised – env=development
+2026-03-06 15:21:58 | INFO     | __main__:main:23 – ============================================================
+2026-03-06 15:21:58 | INFO     | __main__:main:24 –   🚀 Starting Taskverse AI Productivity System
+2026-03-06 15:21:58 | INFO     | __main__:main:25 –   env=development  model=llama-3.3-70b-versatile
+2026-03-06 15:21:58 | INFO     | __main__:main:26 – ============================================================
+2026-03-06 15:21:59 | INFO     | telegram_bot.handlers:register_handlers:88 – Telegram handlers registered – commands=['start', 'add', 'tasks', 'done', 'delay', 'goal', 'studyplan', 'habits', 'motivation', 'help']
+2026-03-06 15:21:59 | INFO     | telegram_bot.bot:build_application:87 – Taskverse Telegram bot application built and ready
+2026-03-06 15:21:59 | INFO     | __main__:main:42 – Taskverse bot is live – listening for messages…
+2026-03-06 15:22:04 | DEBUG    | database.db:_ensure_indexes:69 – MongoDB indexes ensured
+2026-03-06 15:22:04 | INFO     | database.db:get_database:31 – MongoDB connected – db=taskverse
+2026-03-06 15:22:04 | INFO     | telegram_bot.bot:_post_init:45 – ✅ MongoDB connection verified
+2026-03-06 15:22:04 | INFO     | agents.scheduler_agent:start:28 – SchedulerAgent started
+2026-03-06 15:22:04 | INFO     | agents.scheduler_agent:schedule_interval:82 – SchedulerAgent: interval job registered – id=reminder_poller every=300s
+2026-03-06 15:22:04 | INFO     | scheduler.reminder_engine:start:47 – ReminderEngine started – poller=5min, daily-summary=08:00 UTC
+2026-03-06 15:22:04 | INFO     | telegram_bot.bot:_post_init:55 – ✅ Scheduler and reminder engine started
+2026-03-06 15:22:06 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=tasks text='/tasks'
+2026-03-06 15:22:51 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=done text='/done 69aaa20608f851e1df272dbc'
+2026-03-06 15:23:00 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=tasks text='/tasks'
+2026-03-06 15:24:02 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=delay text='/delay 69aaa1e008f851e1df272dbb Sunday morning'
+2026-03-06 15:25:01 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=delay text='/delay 69a9d72c7b409ad74f0cf690 Sunday morning'
+2026-03-06 15:25:43 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=delay text='/delay 69a9d279d94b839b31ad16b5 Monday morning'
+2026-03-06 15:26:34 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=delay text='/delay <69a9d279d94b839b31ad16b5> Monday morning'
+2026-03-06 15:28:21 | INFO     | database.db:close_database:42 – MongoDB connection closed
+2026-03-06 15:28:21 | INFO     | agents.scheduler_agent:shutdown:33 – SchedulerAgent stopped
+2026-03-06 15:28:21 | INFO     | telegram_bot.bot:_post_shutdown:62 – Taskverse shut down cleanly. Goodbye!
+2026-03-06 15:37:54 | INFO     | utils.logger:setup_logger:43 – Taskverse logger initialised – env=development
+2026-03-06 15:37:54 | INFO     | __main__:main:23 – ============================================================
+2026-03-06 15:37:54 | INFO     | __main__:main:24 –   🚀 Starting Taskverse AI Productivity System
+2026-03-06 15:37:54 | INFO     | __main__:main:25 –   env=development  model=llama-3.3-70b-versatile
+2026-03-06 15:37:54 | INFO     | __main__:main:26 – ============================================================
+2026-03-06 15:37:54 | INFO     | telegram_bot.handlers:register_handlers:88 – Telegram handlers registered – commands=['start', 'add', 'tasks', 'done', 'delay', 'goal', 'studyplan', 'habits', 'motivation', 'help']
+2026-03-06 15:37:54 | INFO     | telegram_bot.bot:build_application:87 – Taskverse Telegram bot application built and ready
+2026-03-06 15:37:54 | INFO     | __main__:main:42 – Taskverse bot is live – listening for messages…
+2026-03-06 15:38:00 | DEBUG    | database.db:_ensure_indexes:69 – MongoDB indexes ensured
+2026-03-06 15:38:00 | INFO     | database.db:get_database:31 – MongoDB connected – db=taskverse
+2026-03-06 15:38:00 | INFO     | telegram_bot.bot:_post_init:45 – ✅ MongoDB connection verified
+2026-03-06 15:38:00 | INFO     | agents.scheduler_agent:start:28 – SchedulerAgent started
+2026-03-06 15:38:00 | INFO     | agents.scheduler_agent:schedule_interval:82 – SchedulerAgent: interval job registered – id=reminder_poller every=300s
+2026-03-06 15:38:00 | INFO     | scheduler.reminder_engine:start:47 – ReminderEngine started – poller=5min, daily-summary=08:00 UTC
+2026-03-06 15:38:00 | INFO     | telegram_bot.bot:_post_init:55 – ✅ Scheduler and reminder engine started
+2026-03-06 15:38:01 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=tasks text='/tasks'
+2026-03-06 15:38:32 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=delay text='/delay 69a9d66f7b409ad74f0cf68f Sunday morning'
+2026-03-06 15:38:32 | WARNING  | agents.task_agent:delay_task:101 – delay_task: could not parse deadline='Sunday morning'
+2026-03-06 15:39:08 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=delay text='/delay 69a9d279d94b839b31ad16b5 Sunday morning'
+2026-03-06 15:39:08 | WARNING  | agents.task_agent:delay_task:101 – delay_task: could not parse deadline='Sunday morning'
+2026-03-06 15:39:43 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=delay text='/delay 69a9d279d94b839b31ad16b5 tomorrow morning'
+2026-03-06 15:39:43 | INFO     | agents.task_agent:delay_task:131 – delay_task: modified=1 task_id=69a9d279d94b839b31ad16b5 new_deadline=2026-03-07 02:30:00
+2026-03-06 15:39:59 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=tasks text='/tasks'
+2026-03-06 15:46:11 | INFO     | database.db:close_database:42 – MongoDB connection closed
+2026-03-06 15:46:11 | INFO     | agents.scheduler_agent:shutdown:33 – SchedulerAgent stopped
+2026-03-06 15:46:11 | INFO     | telegram_bot.bot:_post_shutdown:62 – Taskverse shut down cleanly. Goodbye!
+2026-03-06 15:48:45 | INFO     | utils.logger:setup_logger:43 – Taskverse logger initialised – env=development
+2026-03-06 15:48:45 | INFO     | __main__:main:23 – ============================================================
+2026-03-06 15:48:45 | INFO     | __main__:main:24 –   🚀 Starting Taskverse AI Productivity System
+2026-03-06 15:48:45 | INFO     | __main__:main:25 –   env=development  model=llama-3.3-70b-versatile
+2026-03-06 15:48:45 | INFO     | __main__:main:26 – ============================================================
+2026-03-06 15:48:46 | INFO     | telegram_bot.handlers:register_handlers:88 – Telegram handlers registered – commands=['start', 'add', 'tasks', 'done', 'delay', 'goal', 'studyplan', 'habits', 'motivation', 'help']
+2026-03-06 15:48:46 | INFO     | telegram_bot.bot:build_application:87 – Taskverse Telegram bot application built and ready
+2026-03-06 15:48:46 | INFO     | __main__:main:42 – Taskverse bot is live – listening for messages…
+2026-03-06 15:48:51 | DEBUG    | database.db:_ensure_indexes:69 – MongoDB indexes ensured
+2026-03-06 15:48:51 | INFO     | database.db:get_database:31 – MongoDB connected – db=taskverse
+2026-03-06 15:48:51 | INFO     | telegram_bot.bot:_post_init:45 – ✅ MongoDB connection verified
+2026-03-06 15:48:51 | INFO     | agents.scheduler_agent:start:28 – SchedulerAgent started
+2026-03-06 15:48:51 | INFO     | agents.scheduler_agent:schedule_interval:82 – SchedulerAgent: interval job registered – id=reminder_poller every=300s
+2026-03-06 15:48:51 | INFO     | scheduler.reminder_engine:start:47 – ReminderEngine started – poller=5min, daily-summary=08:00 UTC
+2026-03-06 15:48:51 | INFO     | telegram_bot.bot:_post_init:55 – ✅ Scheduler and reminder engine started
+2026-03-06 15:49:00 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=tasks text='/tasks'
+2026-03-06 15:49:33 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=delay text='/delay 69a9d66f7b409ad74f0cf68f Sunday morning'
+2026-03-06 15:49:33 | INFO     | agents.task_agent:delay_task:139 – delay_task: modified=1 task_id=69a9d66f7b409ad74f0cf68f new_deadline=2026-03-08 02:30:00
+2026-03-06 15:49:39 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=tasks text='/tasks'
+2026-03-06 15:51:55 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=studyplan text='/studyplan Dsa and os preparation for exam'
+2026-03-06 15:51:55 | INFO     | agents.study_agent:create_study_plan:28 – StudyAgent.create_study_plan – user=5385205222 topics='Dsa and os preparation for exam'
+2026-03-06 15:51:55 | INFO     | llm.groq_client:get_groq_client:31 – Groq client initialised – model=llama-3.3-70b-versatile
+2026-03-06 15:51:56 | DEBUG    | llm.groq_client:chat_completion:81 – Groq response received – tokens_used=301
+2026-03-06 15:51:56 | INFO     | agents.study_agent:create_study_plan:64 – StudyAgent: plan created – id=69aaaac484ad964df787095f
+2026-03-06 15:53:03 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=start text='/start'
+2026-03-06 15:53:08 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=habits text='/habits'
+2026-03-06 15:53:08 | ERROR    | telegram_bot.handlers:_handle:60 – Handler error – user=5385205222 err=Can't parse entities: can't find end of the entity starting at byte offset 48
+2026-03-06 15:53:17 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=habits text='/habits'
+2026-03-06 15:53:18 | ERROR    | telegram_bot.handlers:_handle:60 – Handler error – user=5385205222 err=Can't parse entities: can't find end of the entity starting at byte offset 48
+2026-03-06 15:53:25 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=habits text='/habits gym'
+2026-03-06 15:53:25 | INFO     | agents.habit_agent:log_habit:24 – HabitAgent.log_habit – user=5385205222 habit='gym' completed=True
+2026-03-06 15:53:32 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=habits text='/habits guitar'
+2026-03-06 15:53:32 | INFO     | agents.habit_agent:log_habit:24 – HabitAgent.log_habit – user=5385205222 habit='guitar' completed=True
+2026-03-06 15:53:34 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=habits text='/habits'
+2026-03-06 15:54:08 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=None text='I need to finish my resume till Sunday'
+2026-03-06 15:54:08 | DEBUG    | llm.groq_client:chat_completion:81 – Groq response received – tokens_used=220
+2026-03-06 15:54:08 | INFO     | agents.controller_agent:_route_by_intent:102 – ControllerAgent intent=create_task confidence=0.80 user=5385205222
+2026-03-06 15:54:08 | INFO     | agents.task_agent:create_task:26 – TaskAgent.create_task – user=5385205222 text='I need to finish my resume till Sunday'
+2026-03-06 15:54:08 | DEBUG    | llm.groq_client:chat_completion:81 – Groq response received – tokens_used=215
+2026-03-06 15:54:08 | INFO     | agents.task_agent:create_task:75 – TaskAgent: task created – id=69aaab4884ad964df7870960 title='Finish Resume'
+2026-03-06 15:54:08 | INFO     | agents.scheduler_agent:schedule_reminder:65 – SchedulerAgent: reminder scheduled – id=reminder_69aaab4884ad964df7870960 at=2026-03-08 10:24:08.870497+00:00
+2026-03-06 15:55:10 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=add text='/add test reminder in two minutes'
+2026-03-06 15:55:10 | INFO     | agents.task_agent:create_task:26 – TaskAgent.create_task – user=5385205222 text='test reminder in two minutes'
+2026-03-06 15:55:11 | DEBUG    | llm.groq_client:chat_completion:81 – Groq response received – tokens_used=214
+2026-03-06 15:55:11 | DEBUG    | agents.task_agent:create_task:44 – TaskAgent: could not parse deadline_text='in two minutes'
+2026-03-06 15:55:11 | INFO     | agents.task_agent:create_task:75 – TaskAgent: task created – id=69aaab8784ad964df7870961 title='test reminder'
+2026-03-06 15:59:05 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=add text='/add test reminder in 2 minutes'
+2026-03-06 15:59:05 | INFO     | agents.task_agent:create_task:26 – TaskAgent.create_task – user=5385205222 text='test reminder in 2 minutes'
+2026-03-06 15:59:05 | DEBUG    | llm.groq_client:chat_completion:81 – Groq response received – tokens_used=216
+2026-03-06 15:59:05 | DEBUG    | agents.task_agent:create_task:44 – TaskAgent: could not parse deadline_text='in 2 minutes'
+2026-03-06 15:59:05 | INFO     | agents.task_agent:create_task:75 – TaskAgent: task created – id=69aaac7184ad964df7870962 title='test reminder'
+2026-03-06 16:07:42 | INFO     | database.db:close_database:42 – MongoDB connection closed
+2026-03-06 16:07:42 | INFO     | agents.scheduler_agent:shutdown:33 – SchedulerAgent stopped
+2026-03-06 16:07:42 | INFO     | telegram_bot.bot:_post_shutdown:62 – Taskverse shut down cleanly. Goodbye!
+2026-03-06 16:12:25 | INFO     | utils.logger:setup_logger:43 – Taskverse logger initialised – env=development
+2026-03-06 16:12:25 | INFO     | __main__:main:23 – ============================================================
+2026-03-06 16:12:25 | INFO     | __main__:main:24 –   🚀 Starting Taskverse AI Productivity System
+2026-03-06 16:12:25 | INFO     | __main__:main:25 –   env=development  model=llama-3.3-70b-versatile
+2026-03-06 16:12:25 | INFO     | __main__:main:26 – ============================================================
+2026-03-06 16:12:26 | INFO     | telegram_bot.handlers:register_handlers:88 – Telegram handlers registered – commands=['start', 'add', 'tasks', 'done', 'delay', 'goal', 'studyplan', 'habits', 'motivation', 'help']
+2026-03-06 16:12:26 | INFO     | telegram_bot.bot:build_application:87 – Taskverse Telegram bot application built and ready
+2026-03-06 16:12:26 | INFO     | __main__:main:42 – Taskverse bot is live – listening for messages…
+2026-03-06 16:12:32 | DEBUG    | database.db:_ensure_indexes:69 – MongoDB indexes ensured
+2026-03-06 16:12:32 | INFO     | database.db:get_database:31 – MongoDB connected – db=taskverse
+2026-03-06 16:12:32 | INFO     | telegram_bot.bot:_post_init:45 – ✅ MongoDB connection verified
+2026-03-06 16:12:32 | INFO     | agents.scheduler_agent:start:28 – SchedulerAgent started
+2026-03-06 16:12:32 | INFO     | agents.scheduler_agent:schedule_interval:82 – SchedulerAgent: interval job registered – id=reminder_poller every=60s
+2026-03-06 16:12:32 | INFO     | scheduler.reminder_engine:start:47 – ReminderEngine started – poller=60s, daily-summary=08:00 UTC
+2026-03-06 16:12:32 | INFO     | telegram_bot.bot:_post_init:55 – ✅ Scheduler and reminder engine started
+2026-03-06 16:12:42 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=add text='/add test reminder in two minutes'
+2026-03-06 16:12:42 | INFO     | agents.task_agent:create_task:26 – TaskAgent.create_task – user=5385205222 text='test reminder in two minutes'
+2026-03-06 16:12:43 | INFO     | llm.groq_client:get_groq_client:31 – Groq client initialised – model=llama-3.3-70b-versatile
+2026-03-06 16:12:43 | DEBUG    | llm.groq_client:chat_completion:81 – Groq response received – tokens_used=214
+2026-03-06 16:12:43 | DEBUG    | agents.task_agent:create_task:44 – TaskAgent: could not parse deadline_text='in two minutes'
+2026-03-06 16:12:43 | INFO     | agents.task_agent:create_task:75 – TaskAgent: task created – id=69aaafa3eb3a61a0fc66a4cf title='test reminder'
+2026-03-06 16:15:15 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=add text='/add remind me to call someone in 3 min'
+2026-03-06 16:15:15 | INFO     | agents.task_agent:create_task:26 – TaskAgent.create_task – user=5385205222 text='remind me to call someone in 3 min'
+2026-03-06 16:15:15 | DEBUG    | llm.groq_client:chat_completion:81 – Groq response received – tokens_used=220
+2026-03-06 16:15:15 | INFO     | agents.task_agent:create_task:75 – TaskAgent: task created – id=69aab03beb3a61a0fc66a4d0 title='Call someone'
+2026-03-06 16:15:15 | INFO     | agents.scheduler_agent:schedule_reminder:65 – SchedulerAgent: reminder scheduled – id=reminder_69aab03beb3a61a0fc66a4d0 at=2026-03-06 10:48:15.516611+00:00
+2026-03-06 16:15:32 | DEBUG    | scheduler.reminder_engine:_poll_upcoming_reminders:80 – ReminderEngine: polled 1 upcoming tasks
+2026-03-06 16:16:32 | DEBUG    | scheduler.reminder_engine:_poll_upcoming_reminders:80 – ReminderEngine: polled 1 upcoming tasks
+2026-03-06 16:17:32 | DEBUG    | scheduler.reminder_engine:_poll_upcoming_reminders:80 – ReminderEngine: polled 1 upcoming tasks
+2026-03-06 16:18:17 | INFO     | agents.controller_agent:_send_reminder:322 – ControllerAgent: reminder sent – user=5385205222 task=69aab03beb3a61a0fc66a4d0
+2026-03-06 16:21:29 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=start text='/start'
+2026-03-06 16:24:23 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=tasks text='/tasks'
+2026-03-06 16:24:38 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=done text='/done'
+2026-03-06 16:24:58 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=done text='/done'
+2026-03-06 16:25:11 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=None text='69a9d24cd94b839b31ad16b4'
+2026-03-06 16:25:12 | DEBUG    | llm.groq_client:chat_completion:81 – Groq response received – tokens_used=222
+2026-03-06 16:25:12 | INFO     | agents.controller_agent:_route_by_intent:102 – ControllerAgent intent=unknown confidence=1.00 user=5385205222
+2026-03-06 16:25:25 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=help text='/help'
+2026-03-06 16:26:43 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=None text='I have done call someone'
+2026-03-06 16:26:43 | DEBUG    | llm.groq_client:chat_completion:81 – Groq response received – tokens_used=217
+2026-03-06 16:26:43 | INFO     | agents.controller_agent:_route_by_intent:102 – ControllerAgent intent=complete_task confidence=0.80 user=5385205222
+2026-03-06 16:26:43 | ERROR    | telegram_bot.handlers:_handle:60 – Handler error – user=5385205222 err='I have done call someone' is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string
+2026-03-06 16:27:21 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=None text='Remind me to update settings in 3 min'
+2026-03-06 16:27:22 | DEBUG    | llm.groq_client:chat_completion:81 – Groq response received – tokens_used=222
+2026-03-06 16:27:22 | INFO     | agents.controller_agent:_route_by_intent:102 – ControllerAgent intent=create_task confidence=0.90 user=5385205222
+2026-03-06 16:27:22 | INFO     | agents.task_agent:create_task:26 – TaskAgent.create_task – user=5385205222 text='Remind me to update settings in 3 min'
+2026-03-06 16:27:22 | DEBUG    | llm.groq_client:chat_completion:81 – Groq response received – tokens_used=220
+2026-03-06 16:27:22 | INFO     | agents.task_agent:create_task:75 – TaskAgent: task created – id=69aab312eb3a61a0fc66a4d1 title='Update settings'
+2026-03-06 16:27:22 | INFO     | agents.scheduler_agent:schedule_reminder:65 – SchedulerAgent: reminder scheduled – id=reminder_69aab312eb3a61a0fc66a4d1 at=2026-03-06 11:00:22.380569+00:00
+2026-03-06 16:27:32 | DEBUG    | scheduler.reminder_engine:_poll_upcoming_reminders:80 – ReminderEngine: polled 1 upcoming tasks
+2026-03-06 16:28:32 | DEBUG    | scheduler.reminder_engine:_poll_upcoming_reminders:80 – ReminderEngine: polled 1 upcoming tasks
+2026-03-06 16:29:02 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=None text='I have done call someone'
+2026-03-06 16:29:02 | DEBUG    | llm.groq_client:chat_completion:81 – Groq response received – tokens_used=217
+2026-03-06 16:29:02 | INFO     | agents.controller_agent:_route_by_intent:102 – ControllerAgent intent=complete_task confidence=0.80 user=5385205222
+2026-03-06 16:29:02 | ERROR    | telegram_bot.handlers:_handle:60 – Handler error – user=5385205222 err='I have done call someone' is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string
+2026-03-06 16:29:06 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=None text='I have done call someone'
+2026-03-06 16:29:06 | DEBUG    | llm.groq_client:chat_completion:81 – Groq response received – tokens_used=217
+2026-03-06 16:29:06 | INFO     | agents.controller_agent:_route_by_intent:102 – ControllerAgent intent=complete_task confidence=0.80 user=5385205222
+2026-03-06 16:29:06 | ERROR    | telegram_bot.handlers:_handle:60 – Handler error – user=5385205222 err='I have done call someone' is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string
+2026-03-06 16:29:08 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=None text='I have done call someone'
+2026-03-06 16:29:08 | DEBUG    | llm.groq_client:chat_completion:81 – Groq response received – tokens_used=217
+2026-03-06 16:29:08 | INFO     | agents.controller_agent:_route_by_intent:102 – ControllerAgent intent=complete_task confidence=0.80 user=5385205222
+2026-03-06 16:29:08 | ERROR    | telegram_bot.handlers:_handle:60 – Handler error – user=5385205222 err='I have done call someone' is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string
+2026-03-06 16:29:32 | DEBUG    | scheduler.reminder_engine:_poll_upcoming_reminders:80 – ReminderEngine: polled 1 upcoming tasks
+2026-03-06 16:30:23 | INFO     | agents.controller_agent:_send_reminder:322 – ControllerAgent: reminder sent – user=5385205222 task=69aab312eb3a61a0fc66a4d1
+2026-03-06 16:35:03 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=done text='/done 69aab312eb3a61a0fc66a4d1'
+2026-03-06 16:35:24 | INFO     | database.db:close_database:42 – MongoDB connection closed
+2026-03-06 16:35:24 | INFO     | agents.scheduler_agent:shutdown:33 – SchedulerAgent stopped
+2026-03-06 16:35:24 | INFO     | telegram_bot.bot:_post_shutdown:62 – Taskverse shut down cleanly. Goodbye!
+2026-06-02 23:51:31 | INFO     | utils.logger:setup_logger:43 – Taskverse logger initialised – env=development
+2026-06-02 23:51:31 | INFO     | __main__:main:23 – ============================================================
+2026-06-02 23:51:31 | INFO     | __main__:main:24 –   🚀 Starting Taskverse AI Productivity System
+2026-06-02 23:51:31 | INFO     | __main__:main:25 –   env=development  model=llama-3.3-70b-versatile
+2026-06-02 23:51:31 | INFO     | __main__:main:26 – ============================================================
+2026-06-02 23:51:31 | INFO     | telegram_bot.handlers:register_handlers:88 – Telegram handlers registered – commands=['start', 'add', 'tasks', 'done', 'delay', 'goal', 'studyplan', 'habits', 'motivation', 'help']
+2026-06-02 23:51:31 | INFO     | telegram_bot.bot:build_application:87 – Taskverse Telegram bot application built and ready
+2026-06-02 23:51:31 | INFO     | __main__:main:42 – Taskverse bot is live – listening for messages…
+2026-06-02 23:51:33 | ERROR    | telegram_bot.bot:_post_init:47 – ❌ MongoDB connection failed: The DNS query name does not exist: _mongodb._tcp.cluster0.1epl7yo.mongodb.net.
+2026-06-02 23:51:33 | INFO     | database.db:close_database:42 – MongoDB connection closed
+2026-06-02 23:51:33 | INFO     | telegram_bot.bot:_post_shutdown:62 – Taskverse shut down cleanly. Goodbye!
+2026-06-02 23:58:33 | INFO     | utils.logger:setup_logger:43 – Taskverse logger initialised – env=development
+2026-06-02 23:58:33 | INFO     | __main__:main:23 – ============================================================
+2026-06-02 23:58:33 | INFO     | __main__:main:24 –   🚀 Starting Taskverse AI Productivity System
+2026-06-02 23:58:33 | INFO     | __main__:main:25 –   env=development  model=llama-3.3-70b-versatile
+2026-06-02 23:58:33 | INFO     | __main__:main:26 – ============================================================
+2026-06-02 23:58:34 | INFO     | telegram_bot.handlers:register_handlers:88 – Telegram handlers registered – commands=['start', 'add', 'tasks', 'done', 'delay', 'goal', 'studyplan', 'habits', 'motivation', 'help']
+2026-06-02 23:58:34 | INFO     | telegram_bot.bot:build_application:87 – Taskverse Telegram bot application built and ready
+2026-06-02 23:58:34 | INFO     | __main__:main:42 – Taskverse bot is live – listening for messages…
+2026-06-02 23:58:36 | DEBUG    | database.db:_ensure_indexes:69 – MongoDB indexes ensured
+2026-06-02 23:58:36 | INFO     | database.db:get_database:31 – MongoDB connected – db=taskverse
+2026-06-02 23:58:36 | INFO     | telegram_bot.bot:_post_init:45 – ✅ MongoDB connection verified
+2026-06-02 23:58:36 | INFO     | agents.scheduler_agent:start:28 – SchedulerAgent started
+2026-06-02 23:58:36 | INFO     | agents.scheduler_agent:schedule_interval:82 – SchedulerAgent: interval job registered – id=reminder_poller every=60s
+2026-06-02 23:58:36 | INFO     | scheduler.reminder_engine:start:47 – ReminderEngine started – poller=60s, daily-summary=08:00 UTC
+2026-06-02 23:58:36 | INFO     | telegram_bot.bot:_post_init:55 – ✅ Scheduler and reminder engine started
+2026-06-03 00:24:23 | INFO     | database.db:close_database:42 – MongoDB connection closed
+2026-06-03 00:24:23 | INFO     | agents.scheduler_agent:shutdown:33 – SchedulerAgent stopped
+2026-06-03 00:24:23 | INFO     | telegram_bot.bot:_post_shutdown:62 – Taskverse shut down cleanly. Goodbye!
+2026-06-06 18:03:37 | INFO     | utils.logger:setup_logger:43 – Taskverse logger initialised – env=development
+2026-06-06 18:03:37 | INFO     | __main__:main:23 – ============================================================
+2026-06-06 18:03:37 | INFO     | __main__:main:24 –   🚀 Starting Taskverse AI Productivity System
+2026-06-06 18:03:37 | INFO     | __main__:main:25 –   env=development  model=llama-3.3-70b-versatile
+2026-06-06 18:03:37 | INFO     | __main__:main:26 – ============================================================
+2026-06-06 18:03:37 | INFO     | telegram_bot.handlers:register_handlers:88 – Telegram handlers registered – commands=['start', 'add', 'tasks', 'done', 'delay', 'goal', 'studyplan', 'habits', 'motivation', 'help']
+2026-06-06 18:03:37 | INFO     | telegram_bot.bot:build_application:87 – Taskverse Telegram bot application built and ready
+2026-06-06 18:03:37 | INFO     | __main__:main:42 – Taskverse bot is live – listening for messages…
+2026-06-06 18:03:45 | DEBUG    | database.db:_ensure_indexes:69 – MongoDB indexes ensured
+2026-06-06 18:03:45 | INFO     | database.db:get_database:31 – MongoDB connected – db=taskverse
+2026-06-06 18:03:45 | INFO     | telegram_bot.bot:_post_init:45 – ✅ MongoDB connection verified
+2026-06-06 18:03:45 | INFO     | agents.scheduler_agent:start:28 – SchedulerAgent started
+2026-06-06 18:03:45 | INFO     | agents.scheduler_agent:schedule_interval:82 – SchedulerAgent: interval job registered – id=reminder_poller every=60s
+2026-06-06 18:03:45 | INFO     | scheduler.reminder_engine:start:47 – ReminderEngine started – poller=60s, daily-summary=08:00 UTC
+2026-06-06 18:03:45 | INFO     | telegram_bot.bot:_post_init:55 – ✅ Scheduler and reminder engine started
+2026-06-06 18:03:48 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=tasks text='/tasks'
+2026-06-06 18:04:26 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=help text='/help'
+2026-06-06 18:05:25 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=add text='/add remind me to book a ticket after 10 min'
+2026-06-06 18:05:25 | INFO     | agents.task_agent:create_task:26 – TaskAgent.create_task – user=5385205222 text='remind me to book a ticket after 10 min'
+2026-06-06 18:05:25 | INFO     | llm.groq_client:get_groq_client:31 – Groq client initialised – model=llama-3.3-70b-versatile
+2026-06-06 18:05:26 | DEBUG    | llm.groq_client:chat_completion:81 – Groq response received – tokens_used=221
+2026-06-06 18:05:26 | DEBUG    | agents.task_agent:create_task:44 – TaskAgent: could not parse deadline_text='after 10 min'
+2026-06-06 18:05:27 | INFO     | agents.task_agent:create_task:75 – TaskAgent: task created – id=6a24140ef780e89ea8e575b9 title='Book Ticket'
+2026-06-06 18:22:26 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=add text='/add remind me to check code in 5 min'
+2026-06-06 18:22:26 | INFO     | agents.task_agent:create_task:26 – TaskAgent.create_task – user=5385205222 text='remind me to check code in 5 min'
+2026-06-06 18:22:27 | DEBUG    | llm.groq_client:chat_completion:81 – Groq response received – tokens_used=220
+2026-06-06 18:22:27 | INFO     | agents.task_agent:create_task:75 – TaskAgent: task created – id=6a24180bf780e89ea8e575ba title='Check code'
+2026-06-06 18:22:27 | INFO     | agents.scheduler_agent:schedule_reminder:65 – SchedulerAgent: reminder scheduled – id=reminder_6a24180bf780e89ea8e575ba at=2026-06-06 12:57:27.438767+00:00
+2026-06-06 18:22:45 | DEBUG    | scheduler.reminder_engine:_poll_upcoming_reminders:80 – ReminderEngine: polled 1 upcoming tasks
+2026-06-06 18:23:45 | DEBUG    | scheduler.reminder_engine:_poll_upcoming_reminders:80 – ReminderEngine: polled 1 upcoming tasks
+2026-06-06 18:24:45 | DEBUG    | scheduler.reminder_engine:_poll_upcoming_reminders:80 – ReminderEngine: polled 1 upcoming tasks
+2026-06-06 18:25:45 | DEBUG    | scheduler.reminder_engine:_poll_upcoming_reminders:80 – ReminderEngine: polled 1 upcoming tasks
+2026-06-06 18:26:45 | DEBUG    | scheduler.reminder_engine:_poll_upcoming_reminders:80 – ReminderEngine: polled 1 upcoming tasks
+2026-06-06 18:27:29 | INFO     | agents.controller_agent:_send_reminder:322 – ControllerAgent: reminder sent – user=5385205222 task=6a24180bf780e89ea8e575ba
+2026-06-06 18:31:03 | INFO     | database.db:close_database:42 – MongoDB connection closed
+2026-06-06 18:31:03 | INFO     | agents.scheduler_agent:shutdown:33 – SchedulerAgent stopped
+2026-06-06 18:31:03 | INFO     | telegram_bot.bot:_post_shutdown:62 – Taskverse shut down cleanly. Goodbye!
+2026-06-06 18:31:13 | INFO     | utils.logger:setup_logger:43 – Taskverse logger initialised – env=development
+2026-06-06 18:31:13 | INFO     | __main__:main:23 – ============================================================
+2026-06-06 18:31:13 | INFO     | __main__:main:24 –   🚀 Starting Taskverse AI Productivity System
+2026-06-06 18:31:13 | INFO     | __main__:main:25 –   env=development  model=llama-3.3-70b-versatile
+2026-06-06 18:31:13 | INFO     | __main__:main:26 – ============================================================
+2026-06-06 18:31:14 | INFO     | telegram_bot.handlers:register_handlers:88 – Telegram handlers registered – commands=['start', 'add', 'tasks', 'done', 'delay', 'goal', 'studyplan', 'habits', 'motivation', 'help']
+2026-06-06 18:31:14 | INFO     | telegram_bot.bot:build_application:87 – Taskverse Telegram bot application built and ready
+2026-06-06 18:31:14 | INFO     | __main__:main:42 – Taskverse bot is live – listening for messages…
+2026-06-06 18:31:16 | DEBUG    | database.db:_ensure_indexes:69 – MongoDB indexes ensured
+2026-06-06 18:31:16 | INFO     | database.db:get_database:31 – MongoDB connected – db=taskverse
+2026-06-06 18:31:16 | INFO     | telegram_bot.bot:_post_init:45 – ✅ MongoDB connection verified
+2026-06-06 18:31:16 | INFO     | agents.scheduler_agent:start:28 – SchedulerAgent started
+2026-06-06 18:31:16 | INFO     | agents.scheduler_agent:schedule_interval:82 – SchedulerAgent: interval job registered – id=reminder_poller every=60s
+2026-06-06 18:31:16 | INFO     | scheduler.reminder_engine:start:47 – ReminderEngine started – poller=60s, daily-summary=08:00 UTC
+2026-06-06 18:31:16 | INFO     | telegram_bot.bot:_post_init:55 – ✅ Scheduler and reminder engine started
+2026-06-06 18:31:25 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=add text='/add'
+2026-06-06 18:31:59 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=add text='/add remind to say hello after 3 min'
+2026-06-06 18:31:59 | INFO     | agents.task_agent:create_task:26 – TaskAgent.create_task – user=5385205222 text='remind to say hello after 3 min'
+2026-06-06 18:31:59 | INFO     | llm.groq_client:get_groq_client:31 – Groq client initialised – model=llama-3.3-70b-versatile
+2026-06-06 18:32:00 | DEBUG    | llm.groq_client:chat_completion:81 – Groq response received – tokens_used=219
+2026-06-06 18:32:00 | INFO     | agents.task_agent:create_task:75 – TaskAgent: task created – id=6a241a48ff6351bebaaa0509 title='Say Hello'
+2026-06-06 18:32:00 | INFO     | agents.scheduler_agent:schedule_reminder:65 – SchedulerAgent: reminder scheduled – id=reminder_6a241a48ff6351bebaaa0509 at=2026-06-06 13:05:00.499469+00:00
+2026-06-06 18:32:16 | DEBUG    | scheduler.reminder_engine:_poll_upcoming_reminders:80 – ReminderEngine: polled 1 upcoming tasks
+2026-06-06 18:33:16 | DEBUG    | scheduler.reminder_engine:_poll_upcoming_reminders:80 – ReminderEngine: polled 1 upcoming tasks
+2026-06-06 18:34:16 | DEBUG    | scheduler.reminder_engine:_poll_upcoming_reminders:80 – ReminderEngine: polled 1 upcoming tasks
+2026-06-06 18:47:11 | INFO     | database.db:close_database:42 – MongoDB connection closed
+2026-06-06 18:47:11 | INFO     | agents.scheduler_agent:shutdown:33 – SchedulerAgent stopped
+2026-06-06 18:47:11 | INFO     | telegram_bot.bot:_post_shutdown:62 – Taskverse shut down cleanly. Goodbye!
+2026-06-06 18:50:06 | INFO     | utils.logger:setup_logger:43 – Taskverse logger initialised – env=development
+2026-06-06 18:50:06 | INFO     | __main__:main:23 – ============================================================
+2026-06-06 18:50:06 | INFO     | __main__:main:24 –   🚀 Starting Taskverse AI Productivity System
+2026-06-06 18:50:06 | INFO     | __main__:main:25 –   env=development  model=llama-3.3-70b-versatile
+2026-06-06 18:50:06 | INFO     | __main__:main:26 – ============================================================
+2026-06-06 18:50:06 | INFO     | telegram_bot.handlers:register_handlers:88 – Telegram handlers registered – commands=['start', 'add', 'tasks', 'done', 'delay', 'goal', 'studyplan', 'habits', 'motivation', 'help']
+2026-06-06 18:50:06 | INFO     | telegram_bot.bot:build_application:97 – Taskverse Telegram bot application built and ready
+2026-06-06 18:50:06 | INFO     | __main__:main:42 – Taskverse bot is live – listening for messages…
+2026-06-06 18:50:08 | DEBUG    | database.db:_ensure_indexes:69 – MongoDB indexes ensured
+2026-06-06 18:50:08 | INFO     | database.db:get_database:31 – MongoDB connected – db=taskverse
+2026-06-06 18:50:08 | INFO     | telegram_bot.bot:_post_init:55 – ✅ MongoDB connection verified
+2026-06-06 18:50:08 | INFO     | agents.scheduler_agent:start:28 – SchedulerAgent started
+2026-06-06 18:50:08 | INFO     | agents.scheduler_agent:schedule_interval:82 – SchedulerAgent: interval job registered – id=reminder_poller every=60s
+2026-06-06 18:50:08 | INFO     | scheduler.reminder_engine:start:47 – ReminderEngine started – poller=60s, daily-summary=08:00 UTC
+2026-06-06 18:50:08 | INFO     | telegram_bot.bot:_post_init:65 – ✅ Scheduler and reminder engine started
+2026-06-06 18:50:24 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=add text='/add'
+2026-06-06 18:51:26 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=add text='/add remind me to deploy this project in 3 min'
+2026-06-06 18:51:26 | INFO     | agents.task_agent:create_task:26 – TaskAgent.create_task – user=5385205222 text='remind me to deploy this project in 3 min'
+2026-06-06 18:51:26 | INFO     | llm.groq_client:get_groq_client:31 – Groq client initialised – model=llama-3.3-70b-versatile
+2026-06-06 18:51:27 | DEBUG    | llm.groq_client:chat_completion:81 – Groq response received – tokens_used=221
+2026-06-06 18:51:27 | INFO     | agents.task_agent:create_task:75 – TaskAgent: task created – id=6a241ed7c92926fc023a46e7 title='Deploy Project'
+2026-06-06 18:51:27 | INFO     | agents.scheduler_agent:schedule_reminder:65 – SchedulerAgent: reminder scheduled – id=reminder_6a241ed7c92926fc023a46e7 at=2026-06-06 13:24:27.141435+00:00
+2026-06-06 18:52:08 | DEBUG    | scheduler.reminder_engine:_poll_upcoming_reminders:80 – ReminderEngine: polled 1 upcoming tasks
+2026-06-06 18:53:08 | DEBUG    | scheduler.reminder_engine:_poll_upcoming_reminders:80 – ReminderEngine: polled 1 upcoming tasks
+2026-06-06 18:54:08 | DEBUG    | scheduler.reminder_engine:_poll_upcoming_reminders:80 – ReminderEngine: polled 1 upcoming tasks
+2026-06-06 18:54:28 | INFO     | agents.controller_agent:_send_reminder:322 – ControllerAgent: reminder sent – user=5385205222 task=6a241ed7c92926fc023a46e7
+2026-06-06 18:55:52 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=done text='/done 6a241ed7c92926fc023a46e7'
+2026-06-06 18:56:02 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=tasks text='/tasks'
+2026-06-06 18:56:22 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=delay text='/delay'
+2026-06-06 18:56:23 | ERROR    | telegram_bot.handlers:_handle:60 – Handler error – user=5385205222 err=Can't parse entities: can't find end of the entity starting at byte offset 19
+2026-06-06 18:56:53 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=delay text='/delay all the task by tomorrow'
+2026-06-06 18:57:13 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=1192944836 command=start text='/start'
+2026-06-06 18:57:33 | INFO     | database.db:close_database:42 – MongoDB connection closed
+2026-06-06 18:57:33 | INFO     | agents.scheduler_agent:shutdown:33 – SchedulerAgent stopped
+2026-06-06 18:57:33 | INFO     | telegram_bot.bot:_post_shutdown:72 – Taskverse shut down cleanly. Goodbye!

@@ -26,16 +26,16 @@ class ReminderEngine:
     def __init__(self, send_message: Callable) -> None:
         self._send = send_message
 
+
     def start(self) -> None:
         """Register recurring jobs on the shared scheduler."""
-        # Poll for upcoming tasks every 5 minutes
+        # Poll every 60 seconds (not 5 min) so short reminders aren't missed
         scheduler_agent.schedule_interval(
             job_id="reminder_poller",
-            seconds=300,
+            seconds=60,
             callback=self._poll_upcoming_reminders,
         )
 
-        # Daily summary every morning at 08:00 (UTC)
         from apscheduler.triggers.cron import CronTrigger
         scheduler_agent._scheduler.add_job(
             self._send_daily_summary,
@@ -44,25 +44,29 @@ class ReminderEngine:
             replace_existing=True,
         )
 
-        log.info("ReminderEngine started – poller=5min, daily-summary=08:00 UTC")
+        log.info("ReminderEngine started – poller=60s, daily-summary=08:00 UTC")
 
     # ── Polling Job ───────────────────────────────────────────────────────────
 
     async def _poll_upcoming_reminders(self) -> None:
-        """Find tasks due within 60 minutes and ensure reminders are queued."""
+        """Find tasks due within 10 minutes and ensure reminders are queued."""
         try:
             db = await get_database()
             repo = TaskRepository(db)
-            upcoming = await repo.get_upcoming(within_minutes=60)
+            upcoming = await repo.get_upcoming(within_minutes=10)
 
             for task in upcoming:
                 task_id = task["_id"]
                 job_id = f"reminder_{task_id}"
 
-                # Only schedule if not already queued
                 if job_id not in scheduler_agent.list_jobs():
                     deadline: datetime = task.get("deadline")
                     if deadline:
+                        # Make deadline aware for scheduler
+                        from datetime import timezone as tz
+                        if deadline.tzinfo is None:
+                            deadline = deadline.replace(tzinfo=tz.utc)
+
                         scheduler_agent.schedule_reminder(
                             job_id=job_id,
                             run_at=deadline,
@@ -77,7 +81,7 @@ class ReminderEngine:
 
         except Exception as exc:
             log.error("ReminderEngine._poll_upcoming_reminders error: {}", exc)
-
+    
     async def _fire_reminder(
         self, telegram_id: int, task_title: str, task_id: str
     ) -> None:

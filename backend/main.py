@@ -16,6 +16,8 @@ from utils.logger import log, setup_logger
 
 
 def main() -> None:
+    from keep_alive import keep_alive
+    keep_alive()
     settings = get_settings()
 
     setup_logger()

@@ -576,3 +576,22 @@
 2026-06-06 18:57:33 | INFO     | database.db:close_database:42 – MongoDB connection closed
 2026-06-06 18:57:33 | INFO     | agents.scheduler_agent:shutdown:33 – SchedulerAgent stopped
 2026-06-06 18:57:33 | INFO     | telegram_bot.bot:_post_shutdown:72 – Taskverse shut down cleanly. Goodbye!
+2026-06-06 19:49:55 | INFO     | utils.logger:setup_logger:43 – Taskverse logger initialised – env=development
+2026-06-06 19:49:55 | INFO     | __main__:main:25 – ============================================================
+2026-06-06 19:49:55 | INFO     | __main__:main:26 –   🚀 Starting Taskverse AI Productivity System
+2026-06-06 19:49:55 | INFO     | __main__:main:27 –   env=development  model=llama-3.3-70b-versatile
+2026-06-06 19:49:55 | INFO     | __main__:main:28 – ============================================================
+2026-06-06 19:49:56 | INFO     | telegram_bot.handlers:register_handlers:88 – Telegram handlers registered – commands=['start', 'add', 'tasks', 'done', 'delay', 'goal', 'studyplan', 'habits', 'motivation', 'help']
+2026-06-06 19:49:56 | INFO     | telegram_bot.bot:build_application:97 – Taskverse Telegram bot application built and ready
+2026-06-06 19:49:56 | INFO     | __main__:main:44 – Taskverse bot is live – listening for messages…
+2026-06-06 19:49:58 | DEBUG    | database.db:_ensure_indexes:69 – MongoDB indexes ensured
+2026-06-06 19:49:58 | INFO     | database.db:get_database:31 – MongoDB connected – db=taskverse
+2026-06-06 19:49:58 | INFO     | telegram_bot.bot:_post_init:55 – ✅ MongoDB connection verified
+2026-06-06 19:49:58 | INFO     | agents.scheduler_agent:start:28 – SchedulerAgent started
+2026-06-06 19:49:58 | INFO     | agents.scheduler_agent:schedule_interval:82 – SchedulerAgent: interval job registered – id=reminder_poller every=60s
+2026-06-06 19:49:58 | INFO     | scheduler.reminder_engine:start:47 – ReminderEngine started – poller=60s, daily-summary=08:00 UTC
+2026-06-06 19:49:58 | INFO     | telegram_bot.bot:_post_init:65 – ✅ Scheduler and reminder engine started
+2026-06-06 19:50:25 | INFO     | agents.input_agent:process:79 – InputAgent processed – user=5385205222 command=tasks text='/tasks'
+2026-06-06 19:50:41 | INFO     | database.db:close_database:42 – MongoDB connection closed
+2026-06-06 19:50:41 | INFO     | agents.scheduler_agent:shutdown:33 – SchedulerAgent stopped
+2026-06-06 19:50:41 | INFO     | telegram_bot.bot:_post_shutdown:72 – Taskverse shut down cleanly. Goodbye!

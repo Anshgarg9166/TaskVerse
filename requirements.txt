@@ -1,7 +1,3 @@
-# ─────────────────────────────────────────────
-#  Taskverse – Python Dependencies
-#  Compatible with Python 3.13 on Windows
-# ─────────────────────────────────────────────
 
 # Web Framework
 fastapi==0.115.12
@@ -37,5 +33,5 @@ pytest==8.3.5
 pytest-asyncio==0.26.0
 pytest-mock==3.14.0
 
-#used to keep alive render
+# Keep Alive (for Render Web Service)
 flask==3.1.0
